@@ -1,0 +1,33 @@
+## 🏗️ Structural & Material Specifications
+
+* Column Dimensions: 22–24" outer diameter, 9.5' total height.
+* Plenum Penetration: Bottom 3' of the column sits inside a sealed crawl space plenum; top 6.5' stands inside the living space.
+* Column Construction: Dense hydraulic cement outer body mixed with 0.1% to 1.0% (by weight) Graphene Nanoplatelets (GNPs) to maximize thermal conductivity. Finished with a rough surface texture and coated in flat matte-black, thermally conductive paint.
+* Core Core & Fins: 4" diameter central core made of unmodified reinforced hydraulic cement acting as a structural convection rod. Fitted with 1" vertical fins on the core's exterior.
+* Liminal Water Cavity: The fluid gap between the core and outer body features 2" internal helical fins molded into the outer body to force a upward/downward fluid vortex.
+* Fluid Passivation: Cavity is lined with a high-temperature EPDM or silicone sleeve and filled with lime-saturated water maintained at a pH above 11.5 to passivate and protect the concrete matrix from internal degradation.
+
+## 💨 Ventilation & Airflow Dynamics
+
+* Two-Stage Plenum Layering:
+* Stage 1 (Open Crawl Space): Serves as a large-volume, low-velocity return-air settling chamber where airborne particles sink before entering the mechanical cycle.
+   * Stage 2 (Condition Manifold): Centralized zone housing a central A/C evaporator coil and a secondary high-capacity dehumidifier to sanitize and strip all moisture from the air before it passes to the column.
+   * Stage 3 (Active Exchange Skirt): A glass-smooth, polished finished fiberglass helical outer skirt wrapped tightly around the lower 3' of the column. It leaves a tight 1.5" air gap restriction to break the boundary layer and accelerate air velocity around the concrete base.
+* Mechanical Prime Mover: A single high-quality 10" Inline Centrifugal or Mixed-Flow Fan designed to handle high static pressure. Throttled via Arduino PWM to move air from the floor plenum up past the column to an overhead discharge intake.
+* Distribution Matrix: 7 perimeter floor registers evenly spaced along the outer walls of a 1,500 sq ft open bungalow layout. Proximity registers are mechanically restricted to equalize static pressure, pulling warm air out to the R-57 exterior walls before it loops back to the center of the home.
+
+## ☀️ Optical Harvesting & Shuttering Mechanics
+
+* Primary Collectors: Four 22" diameter circular Fresnel lenses arranged edge-to-edge down the long axis of a 4/12 pitch roof. Light passes through down-tubes to hit the concrete column at an acute angle to prevent localized hot-spotting.
+* Reflective Tracking Arrays: Individual concave mirrored rings mounted on 360° slewing/bearing rings encircling each of the 4 roof collectors.
+* Mechanical Drive: A single continuous-shaft worm gear drive driven by a NEMA 23 stepper or high-torque 12V DC motor. The self-locking worm gears hold position rigidly against wind loads with zero motor backdrive holding strain.
+* Tracking & Shutter Alignment: Rings rotate horizontally to follow the winter sun's daily azimuth. At an emergency threshold of 185°F, the worm shaft rotates the rings 180° to point North. The insulated/reflective backs of the frames block out all incoming sun, acting as a complete solar shutter.
+
+## 🤖 Automation, Safety, & Building Insulation
+
+* Thermal Envelope Parameters: High-performance insulation setup consisting of a dropped 7.5' false ceiling rated at R-60, and optimized structural walls rated at R-57 (minimizing space volume to 11,250 cu ft and holding column heat for up to 41.3 hours at 0°F).
+* Arduino Processor Array: Tracks column water temperature, internal core temperature, column concrete face temperature, ambient room temperature, and plenum relative humidity.
+* Fan PID Control Loop: Uses a Proportional-Integral-Derivative loop to modulate the 10" centrifugal fan speed inversely based on room temperature, running a low-RPM maintenance loop between 62–65°F to eliminate thermal stratification.
+* Moisture Interlock: Programmed to calculate real-time dew point. If the column temperature drops within 3°F of the indoor dew point, it force-activates the dehumidifiers or locks out the 10" fan to prevent condensation sweating.
+* Hardware Fallback Switch: A bimetallic mechanical snap disc thermal switch wired directly inline with the worm drive motor power supply. It forces the tracking rings to rotate into 180° blockout safety mode at 185°F completely independent of any software faults.
+* Sump Drain Array: All condensate lines from the evaporator coil and dehumidifiers feed into a single, centrally located sump pit fitted with dual mechanical float switches wired to an Arduino system interrupt pin to cut all A/C compressor power if a clog occurs.
