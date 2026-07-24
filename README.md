@@ -1,0 +1,81 @@
+## V2 Monolithic Steel Trombe Column: System Specification
+This specification transforms the passive concrete Trombe column into an active, two-chamber fluid-displacement solar boiler and dynamic thermal battery.
+
+       [ 4-Foot Upper Chamber ]
+   +----------------------------+
+
+   |   ::: Nitrogen Gas :::     |  <-- 0 PSI Neutral Cushion
+   |~~~~~ Liquid Level ~~~~~~~~~|  <-- Rises ~7" at peak expansion
+   +---------\--------/---------+
+
+              |  |                 
+        [Bi-Dir Valve]             <-- Flush mount to floor, projects down
+
+              |  |                 
+   +---------\--------/---------+
+
+   |      /          \          |
+   |     /            \         |  <-- Inverted Cone Divider / Gas Purge
+   |                            |
+   |                            |
+   |   [ 9.5-Foot Solar Tank ]  <-- 223 Gallons, 40% Glycol Mix
+
+   |                            |
+   |   ( )   ( )   ( )   ( )    |  <-- 4x 22" Solar Tubes + Spherical Fresnel Lenses
+   +----------------------------+
+
+------------------------------
+## 1. Structural & Mechanical Geometry
+
+* Dimensions: Monolithic vertical cylinder. Total height: $13.5\text{ feet}$. Diameter: $24\text{ inches}$.
+* Materials: $1/4\text{-inch}$ welded structural carbon steel plate.
+* Chamber Division: An internal inverted steel cone divides the structure into two distinct functional zones at the $9.5\text{-foot}$ mark. The cone perimeter is continuously welded to the outer chassis.
+* Lower Heating Chamber: Stands $9.5\text{ feet}$ tall. Gross fluid capacity is $\approx 223.26\text{ gallons}$.
+* Upper Expansion Chamber: Stands $4\text{ feet}$ tall. Gross capacity is $\approx 94\text{ gallons}$.
+* Internal Fluid Elements (Lower Chamber):
+* Outer Helical Fins: Steel plates protruding $3\text{ inches}$ from the wall, angled at a $40^\circ$ pitch, stretching the full height of the lower reservoir. Forces upward fluid convection along the heated perimeter.
+   * Central Convection Rod: Solid metal core running down the center axis equipped with opposing $2\text{-inch}$ helical fins. Forces downward fluid convection along the cooler core axis, creating a continuous internal thermal siphon.
+
+------------------------------
+## 2. Dual-Chamber Pressure & Fluid Displacement
+
+* Working Fluid: 40% Propylene Glycol to 60% Distilled Water by volume (Total Fluid Weight: $\approx 1,862\text{ lbs}$).
+* Freezing Protection: Rating down to $-8^\circ\text{F}\ (-22^\circ\text{C})$.
+   * Boiling/Thermal Stability: Rating up to $244^\circ\text{F}\ (117^\circ\text{C})$.
+* Expansion Gas Cushion: The upper $4\text{-foot}$ chamber is sealed and pre-charged with a pure Nitrogen blanket set to 0 psi (neutral gauge pressure) when the system is cold.
+* Bi-Directional Transfer Valve: Mounted at the absolute center-bottom of the inverted cone divider. The intake is flush with the upper chamber floor and projects down into the lower reservoir.
+* Pressure Relief (Upward Flow): Calibrated to crack at $4\text{ to }5\text{ psi}$. As focused solar energy expands the lower fluid volume by $\approx 13.4\text{ gallons}$ ($\approx 6\%$), it funnels up the inverted cone, cracks the valve, and pools on the upper floor, compressing the nitrogen gas space to a safe operational peak of just $2.44\text{ psi}$.
+   * Vacuum Relief (Downward Flow): Calibrated to crack at $-0.5\text{ psi}$. As the system cools at night, the shrinking fluid creates a vacuum. The valve instantly draws the pooled liquid back down into the lower reservoir. The flush floor placement prevents nitrogen gas from leaking into the solar loop.
+
+------------------------------
+## 3. Aerodynamics & Airflow Skirt Integration
+
+* Plenum Skirt: A rigid fiberglass airflow enclosure wraps around the lower portion of the column, leaving a restrictive $1.5\text{-inch}$ air gap against the bare steel tank to maximize boundary-layer-smashing air velocities.
+* 30° Bell-Mouth Flare: The bottom $8\text{ inches}$ of the plenum skirt flares outward at a $30^\circ$ angle, widening the air intake gap from $1.5\text{ inches}$ out to $6.12\text{ inches}$ (expanding the baseline $27\text{-inch}$ skirt to a $36.24\text{-inch}$ wide mouth). This reduces velocity at the entrance, lowering system static pressure.
+* Expanded Metal Desiccant Cage: A modular, dual-layer sandwich cartridge made of $1/2\text{-inch}\ \#20\text{ Flattened, Polished 304/316 Stainless Steel}$ expanded metal lines the inside of the 30° bell-mouth flare.
+* Diurnal Moisture Filter: A low-profile ($1/8\text{-inch}$ to $1/4\text{-inch}$) Type B or Polymer Silica Desiccant Mat is loosely secured within the stainless steel cage.
+* Night (Adsorption): The mat acts as a vapor lock, stripping moisture out of the slow boundary air to prevent cold-surface sweating on the steel tank.
+   * Day (Desorption/Regeneration): Radiant heat from the solar-heated steel reflects off the polished stainless steel mesh, baking the mats at $120^\circ\text{F}\text{--}140^\circ\text{F}$. Extracted moisture is pushed upward into the mechanical air loop.
+
+------------------------------
+## 4. Mechanical & Climate Infrastructure Interlocks
+
+* Environmental Enclosure: System operates inside an encapsulated crawl space plenum equipped with inline high-grade HEPA filters upstream of all mechanicals, preventing dust or organic debris from fouling the desiccant mats or air channels.
+* Mechanical Prime Mover: A single $10\text{-inch}$ Inline Centrifugal Fan controlled by an Arduino PWM loop regulates airflow velocity through the skirt.
+* Summer Cooling Buffer: A $2\text{-ton}\ (24,000\text{ BTUh})$ Split-System AC Expansion Coil is mounted at the throat of the plenum skirt, immediately following the HEPA filters.
+* Thermal Charging: The compressor runs at steady-state for $1.7\text{ hours}$ to chill the entire $1,862\text{-pound}$ liquid core down to $50^\circ\text{F}$.
+   * Peak Shaving: The compressor shuts off during hot afternoon hours. The $10\text{-inch}$ fan trickles air across the chilled steel tank face, delivering continuous radiant cooling while drawing minimal grid power.
+* Heat Routing (Split Dehumidifier): The hot condensing unit of the split-system dehumidifier is located outside the house during the summer to eliminate parasitic reheat. In winter, an automated Arduino-controlled 3-way refrigerant solenoid valve diverts the hot Freon gas back to an internal sub-condenser inside the plenum, recycling 100% of the compressor's waste heat into the steel column.
+* Solid-State Safety Array: Moving float switches are entirely replaced. A dual-pin resistance moisture sensor is suspended $1/8\text{ inch}$ above the floor of the auxiliary drain pan, while a water leak detection rope sensor wraps around the perimeter floor of the 30° bell flare. To completely eliminate galvanic corrosion, the Arduino loops power to the sensors via a digital output pin for only a few milliseconds every 10 seconds.
+
+------------------------------
+## 5. Thermodynamic Baseline Performance
+Calculated for a $1,500\text{ sq ft}$ home with $7.5\text{-foot}$ ceilings equipped with an R-57 envelope, operating in a standard Southern Illinois / Southeast Missouri winter climate (Mean Outdoor Temperature: $37^\circ\text{F}$, Interior Target: $65^\circ\text{F}$).
+
+* Max Thermal Energy Capacity: $188,434\text{ BTUs}$ (Operating between $70^\circ\text{F}$ room baseline and $185^\circ\text{F}$ automated solar high-cutoff limit).
+* Hourly Whole-House Heat Loss: $2,063\text{ BTUh}$ at standard regional winter temperatures ($49,512\text{ BTUs}$ consumed per 24 hours).
+* Passive Convection Performance: If the $10\text{-inch}$ mechanical fan fails, the steel column's rapid conduction rate triggers a self-sustaining passive thermosiphon loop through the $1.5\text{-inch}$ skirt, generating a quiet trickle output of $1,500\text{ to }2,500\text{ BTUh}$ (controlled by a motorized Arduino damper at the top register to prevent daytime thermal dumping).
+* Static Autonomous Reserve (Zero Sun): If persistent cloud cover hits the region, a single full thermal charge will float the entire $1,500\text{ sq ft}$ home for $64\text{ hours}$ ($\approx 2.7\text{ days}$) in complete darkness (including a 30% real-world infiltration safety margin).
+* Net-Positive Solar Replenishment: On a standard crisp, sunny Midwestern winter day, the $4\times 22\text{-inch}$ spherical Fresnel collectors paired with the northern curved mirror arrays act as a $\approx 40\text{--}50\text{ sq ft}$ virtual flat plate collector, injecting $\approx 60,000\text{ BTUs}$ back into the fluid core during 5 peak sunlight hours. Because daytime input ($+60,000\text{ BTUs}$) exceeds the daily R-57 building heat leak ($-49,512\text{ BTUs}$), the system operates as a 100% self-sustaining, net-positive primary furnace.
+
+Would you like to generate the Markdown-formatted schema for the Arduino pin assignments and sensor loop structure to complete this file?
